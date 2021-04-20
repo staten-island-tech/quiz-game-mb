@@ -1,8 +1,8 @@
-(function(){
-    function buildQuiz(){
-      const output = [];
+function gameContainer(){
+    function quizGame(){
+      const product = [];
   
-      myQuestions.forEach(
+      /*myQuestions.forEach(
         (currentQuestion, questionNumber) => {
           const answers = [];
 
@@ -17,14 +17,14 @@
             );
           }
   
-          output.push(
+          product.push(
             `<div class="question"> ${currentQuestion.question} </div>
             <div class="answers"> ${answers.join('')} </div>`
           );
         }
-      );
+      );*/
 
-      quizContainer.innerHTML = output.join('');
+      quizContainer.innerHTML = product.join('');
     }
   
     function showResults(){
@@ -36,8 +36,8 @@
   
 
         const answerContainer = answerContainers[questionNumber];
-        const selector = `input[name=question${questionNumber}]:checked`;
-        const userAnswer = (answerContainer.querySelector(selector) || {}).value;
+        const picked = `input[name=question${questionNumber}]:checked`;
+        const userAnswer = (answerContainer.querySelector(picked) || {}).value;
   
         if(userAnswer === currentQuestion.correctAnswer){
           numCorrect++;
@@ -58,36 +58,55 @@
     const submitButton = document.getElementById('submit');
     const myQuestions = [
       {
-        question: "Who invented JavaScript?",
+        question: "What is the 1st letter of the alphabet?",
         answers: {
-          a: "Douglas Crockford",
-          b: "Sheryl Sandberg",
-          c: "Brendan Eich"
+          a: "a",
+          b: "b",
+          c: "b"
+        },
+        correctAnswer: "a"
+      },
+      {
+        question: "What is the 2nd letter of the alphabet?",
+        answers: {
+          a: "a",
+          b: "b",
+          c: "c"
+        },
+        correctAnswer: "b"
+      },
+      {
+        question: "What is the 3rd letter of the alphabet?",
+        answers: {
+          a: "a",
+          b: "b",
+          c: "c"
         },
         correctAnswer: "c"
       },
       {
-        question: "Which one of these is a JavaScript package manager?",
+        question: "What is the 4th letter of the alphabet?",
         answers: {
-          a: "Node.js",
-          b: "TypeScript",
-          c: "npm"
+          a: "d",
+          b: "e",
+          c: "f"
         },
-        correctAnswer: "c"
+        correctAnswer: "a"
       },
       {
-        question: "Which tool can you use to ensure code quality?",
+        question: "What is the 6th letter of the alphabet?",
         answers: {
-          a: "Angular",
-          b: "jQuery",
-          c: "RequireJS",
-          d: "ESLint"
+          a: "c",
+          b: "d",
+          c: "e",
+          d: "f"
         },
         correctAnswer: "d"
       }
     ];
   
-    buildQuiz();
+    quizGame();
   
     submitButton.addEventListener('click', showResults);
-  })();
+  }
+  gameContainer()
